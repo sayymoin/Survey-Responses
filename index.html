@@ -3,6 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1 RnR Award Nominations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Q1 RnR Award Nominations</h1>
+        <p>Recognize and appreciate your peers by nominating them for awards that celebrate their contributions and achievements.</p>
+        
+        <form id="survey-form">
+            <fieldset>
+                <legend>Section 1: Nomination Details</legend>
+                <label for="nominator">Mention your login (without @company.com)</label>
+                <input type="text" id="nominator" name="nominator" required>
+                
+                <label for="nominee">Mention the nominee's login (without @company.com)</label>
+                <input type="text" id="nominee" name="nominee" required>
+                
+                <label for="award">Choose the Award</label>
+                <select id="award" name="award" required>
+                    <option value="">Select an Award</option>
+                    <option value="Vulcan">The Vulcan Award</option>
+                    <option value="GameChanger">The Game Changer Award</option>
+                    <option value="Village">It Takes a Village Award</option>
+                    <option value="Spotlight">Spotlight Award</option>
+                    <option value="MoversShakers">Movers and Shakers Award</option>
+                </select>
+                
+                <button type="button" id="next-btn" disabled>Next</button>
+            </fieldset>
+            
+            <fieldset id="section-2" style="display: none;">
+                <legend>Section 2: Award-Specific Mitigations & Personal Reasons</legend>
+                <p id="award-question"></p>
+                <div id="mitigations"></div>
+                
+                <label for="reason">Personal Reasons for Nomination</label>
+                <textarea id="reason" name="reason" rows="4" placeholder="Mention your personal reasons for nomination. For example, X person assisted me with the guidelines proposal, X person has made a significant impact by introducing XYZ project."></textarea>
+                
+                <button type="submit" id="submit-btn" disabled>Submit</button>
+            </fieldset>
+        </form>
+        
+        <p id="thank-you-message" style="display: none;"></p>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+<!---
+
+3rd Main survey sample
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1 RnR Award Nominations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Q1 RnR Award Nominations</h1>
+        <p>Recognize your peers for their outstanding contributions and achievements. Nominate them for an award today!</p>
+
+        <form id="nominationForm">
+            
+            <h2>Section 1: Nomination Details</h2>
+            <label for="nominator">Your Login (without @company.com):</label>
+            <input type="text" id="nominator" required>
+            
+            <label for="nominee">Nominee's Login (without @company.com):</label>
+            <input type="text" id="nominee" required>
+            
+            <label for="award">Choose an Award:</label>
+            <select id="award" required>
+                <option value="">--Select Award--</option>
+                <option value="The Vulcan Award">The Vulcan Award</option>
+                <option value="The Game Changer Award">The Game Changer Award</option>
+                <option value="It Takes a Village Award">It Takes a Village Award</option>
+                <option value="Spotlight Award">Spotlight Award</option>
+                <option value="Movers and Shakers Award">Movers and Shakers Award</option>
+            </select>
+            
+            <button type="button" id="nextBtn" disabled>Next</button>
+            
+         
+            <div id="section2" style="display: none;">
+                <h2>Section 2: Award-Specific Mitigations & Personal Reasons</h2>
+                <p>I want to nominate this individual for the <span id="selectedAward"></span></p>
+                <div id="mitigations"></div>
+                
+                <label for="reason">Personal Reason:</label>
+                <textarea id="reason" placeholder="Mention your personal reasons for nomination (min 15 words)"></textarea>
+                
+                <button type="submit" id="submitBtn" disabled>Submit</button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+--->
+
+<!--
+
+SECOND CODE SAMPLE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic Survey</title>
     <style>
         body {
@@ -141,8 +258,13 @@
 
 </body>
 </html>
+-->
 
-<!-- <!DOCTYPE html>
+
+<!--
+First Code Sample
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>Survey Form</title>
