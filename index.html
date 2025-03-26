@@ -3,6 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RnR Q1 Nomination Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="survey-form">
+            <!-- Section 1 -->
+            <div id="section-1">
+                <h2>Nomination Details</h2>
+                <label for="nominator">Your Login:</label>
+                <input type="text" id="nominator" required>
+
+                <label for="nominee">Nominee’s Login:</label>
+                <input type="text" id="nominee" required>
+
+                <label for="award">Choose Award:</label>
+                <select id="award" required>
+                    <option value="">Select Award</option>
+                    <option value="Vulcan">The Vulcan Award</option>
+                    <option value="GameChanger">The Game Changer Award</option>
+                    <option value="Village">It Takes a Village Award</option>
+                    <option value="Spotlight">Spotlight Award</option>
+                    <option value="MoversShakers">Movers and Shakers Award</option>
+                </select>
+
+                <button type="button" id="next-btn" disabled>Next</button>
+            </div>
+
+            <!-- Section 2 -->
+            <div id="section-2" style="display: none;">
+                <h2 id="award-question"></h2>
+                <div id="mitigations"></div>
+
+                <label for="reason">Personal Reasons for Nomination:</label>
+                <textarea id="reason" placeholder="Explain why you're nominating this person..." required></textarea>
+
+                <button type="button" id="prev-btn">Previous</button>
+                <button type="submit" id="submit-btn" disabled>Submit</button>
+            </div>
+        </form>
+
+        <!-- Thank You Message -->
+        <div id="thank-you-message" style="display: none;">
+            <h2>🎉 Thank You! 🎉</h2>
+            <p id="thank-you-text"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<!--
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Q1 RnR Award Nominations</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -51,7 +111,7 @@
     <script src="script.js"></script>
 </body>
 </html>
-
+-->
 
 
 
