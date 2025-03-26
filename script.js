@@ -1,5 +1,100 @@
 document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.getElementById("next-btn");
+    const prevBtn = document.getElementById("prev-btn");
+    const submitBtn = document.getElementById("submit-btn");
+    const section1 = document.getElementById("section-1");
+    const section2 = document.getElementById("section-2");
+    const awardSelect = document.getElementById("award");
+    const mitigationsDiv = document.getElementById("mitigations");
+    const reasonInput = document.getElementById("reason");
+    const surveyForm = document.getElementById("survey-form");
+    const thankYouMessage = document.getElementById("thank-you-message");
+    const thankYouText = document.getElementById("thank-you-text");
+
+    // Hide Section 2 initially
+    section2.style.display = "none";
+
+    // Mitigations options
+    const mitigations = {
+        Vulcan: ["for outstanding coaching", "for mentoring team members"],
+        GameChanger: ["for leading impactful changes", "for ensuring smooth guideline transitions"],
+        Village: ["for being a key contributor to team success"],
+        Spotlight: ["for innovative ideas and exceeding expectations"],
+        MoversShakers: ["for excelling beyond responsibilities"]
+    };
+
+    function validateSection1() {
+        const nominator = document.getElementById("nominator").value.trim();
+        const nominee = document.getElementById("nominee").value.trim();
+        const award = awardSelect.value;
+        nextBtn.disabled = !(nominator && nominee && award);
+    }
+
+    function updateMitigations() {
+        const selectedAward = awardSelect.value;
+        mitigationsDiv.innerHTML = "";
+        document.getElementById("award-question").innerText = `I want to nominate for ${awardSelect.options[awardSelect.selectedIndex].text}`;
+        if (mitigations[selectedAward]) {
+            mitigations[selectedAward].forEach(mitigation => {
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.name = "mitigation";
+                checkbox.value = mitigation;
+                checkbox.addEventListener("change", validateSection2);
+
+                const label = document.createElement("label");
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(mitigation));
+                mitigationsDiv.appendChild(label);
+                mitigationsDiv.appendChild(document.createElement("br"));
+            });
+        }
+    }
+
+    function validateSection2() {
+        const checkedBoxes = document.querySelectorAll("input[name='mitigation']:checked").length;
+        const reasonText = reasonInput.value.trim();
+        const wordCount = reasonText.split(/\s+/).filter(word => word).length;
+        submitBtn.disabled = !(checkedBoxes > 0 || wordCount >= 15);
+    }
+
+    // Show Section 2 and hide Section 1 when "Next" is clicked
+    nextBtn.addEventListener("click", function () {
+        section1.style.display = "none";
+        section2.style.display = "block";
+    });
+
+    // Show Section 1 and hide Section 2 when "Previous" is clicked
+    prevBtn.addEventListener("click", function () {
+        section1.style.display = "block";
+        section2.style.display = "none";
+    });
+
+    // Submit and show Thank You message
+    surveyForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        thankYouText.innerText = `Thank you, ${document.getElementById("nominator").value} for your nomination! Your recognition helps foster a culture of appreciation and excellence.`;
+        thankYouMessage.style.display = "block";
+        surveyForm.style.display = "none";
+    });
+
+    // Event listeners
+    awardSelect.addEventListener("change", updateMitigations);
+    document.getElementById("nominator").addEventListener("input", validateSection1);
+    document.getElementById("nominee").addEventListener("input", validateSection1);
+    awardSelect.addEventListener("change", validateSection1);
+    reasonInput.addEventListener("input", validateSection2);
+});
+
+
+
+
+
+/* 
+
+3rd JS Code
+document.addEventListener("DOMContentLoaded", function () {
+    const nextBtn = document.getElementById("next-btn");
     const submitBtn = document.getElementById("submit-btn");
     const awardSelect = document.getElementById("award");
     const section2 = document.getElementById("section-2");
@@ -101,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
         surveyForm.style.display = "none";
     });
 });
-
+*/
 
 /*
 
